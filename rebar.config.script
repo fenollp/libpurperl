@@ -1,0 +1,3 @@
+CFLAGS = string:strip(os:cmd("pkg-config --cflags --libs purple"), both, $\n),
+PortEnv = {port_env, [{"CFLAGS", "$CFLAGS -Wall " ++ CFLAGS}]},
+lists:keystore(port_env, 1, CONFIG, PortEnv).
